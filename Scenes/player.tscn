@@ -266,5 +266,11 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_li6ia")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=13793571]
+process_callback = 0
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_drag_margin = true
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
