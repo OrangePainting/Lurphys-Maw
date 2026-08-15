@@ -1,11 +1,46 @@
 [gd_scene format=3 uid="uid://caoh7ive4bfes"]
 
+[ext_resource type="Script" uid="uid://b3ym7qx5e2yw3" path="res://Scripts/walker.gd" id="1_cb6jd"]
+[ext_resource type="Texture2D" uid="uid://du4nhr580i64w" path="res://ProcGen/tileset/placeholder_level.png" id="2_mao3v"]
+[ext_resource type="Texture2D" uid="uid://cv607e607vdaa" path="res://ProcGen/tileset/placeholder_wall.png" id="3_1qc6x"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cb6jd"]
+texture = ExtResource("2_mao3v")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mao3v"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_cb6jd")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_276sl"]
+texture = ExtResource("3_1qc6x")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
 [sub_resource type="TileSet" id="TileSet_li6ia"]
-tile_size = Vector2i(32, 32)
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/4 = SubResource("TileSetAtlasSource_276sl")
 
 [node name="ProcGen" type="Node2D" unique_id=1396242315]
+script = ExtResource("1_cb6jd")
+max_iterations = 40
+ground_chance = 0.35
+borders = 1
+steps_per_frame = 2
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1785218630]
+unique_name_in_owner = true
+tile_set = SubResource("TileSet_mao3v")
+
+[node name="Background" type="TileMapLayer" parent="." unique_id=964187038]
+unique_name_in_owner = true
 tile_set = SubResource("TileSet_li6ia")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1636019933]
+unique_name_in_owner = true
+position = Vector2(640, 360)
+zoom = Vector2(0.7, 0.7)

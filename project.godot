@@ -22,6 +22,8 @@ FxManager="*uid://ba24r8bkg84xr"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -33,8 +35,9 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
 folder_colors={
 "res://Assets/": "red",
-"res://Scenes/": "orange",
-"res://Scripts/": "yellow"
+"res://ProcGen/": "orange",
+"res://Scenes/": "yellow",
+"res://Scripts/": "green"
 }
 
 [gui]

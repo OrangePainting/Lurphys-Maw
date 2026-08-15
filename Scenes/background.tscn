@@ -5,20 +5,20 @@
 
 [node name="Background" type="Node2D" unique_id=1103033396]
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=855285228]
+[node name="BackLayer" type="Parallax2D" parent="." unique_id=855285228]
 scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(288, 256)
-repeat_times = 7
+repeat_times = 9
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1060304840]
+[node name="Sprite2D" type="Sprite2D" parent="BackLayer" unique_id=1060304840]
 texture = ExtResource("1_pojwb")
 centered = false
 
-[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=793363784]
+[node name="MidLayer" type="Parallax2D" parent="." unique_id=793363784]
 scroll_scale = Vector2(0.7, 0.7)
 repeat_size = Vector2(960, 512)
 repeat_times = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1372889919]
+[node name="Sprite2D" type="Sprite2D" parent="MidLayer" unique_id=1372889919]
 texture = ExtResource("2_4aqey")
 centered = false
