@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c482h17qwnv50"]
 
-[node name="Main" type="Node2D" unique_id=1755036456]
+[ext_resource type="Script" uid="uid://bv3jswenqgrps" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cjxt3sk5lmasl" path="res://Scenes/player.tscn" id="2_bo1nx"]
 
-[node name="Label" type="Label" parent="." unique_id=150211710]
-offset_right = 40.0
-offset_bottom = 14.0
-theme_override_font_sizes/font_size = 64
-text = "Hi"
+[node name="Main" type="Node2D" unique_id=1755036456]
+script = ExtResource("1_jjgbg")
+
+[node name="Player" parent="." unique_id=1996954412 instance=ExtResource("2_bo1nx")]
+position = Vector2(100, 100)

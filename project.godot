@@ -28,7 +28,9 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://Scenes/": "red"
+"res://Assets/": "red",
+"res://Scenes/": "orange",
+"res://Scripts/": "yellow"
 }
 
 [gui]
@@ -42,6 +44,7 @@ theme/custom_font="uid://beyj3kfbpysym"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
