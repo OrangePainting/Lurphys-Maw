@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://c482h17qwnv50"]
 
 [node name="Main" type="Node2D" unique_id=1755036456]
+
+[node name="Label" type="Label" parent="." unique_id=150211710]
+offset_right = 40.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 64
+text = "Hi"

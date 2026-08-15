@@ -26,6 +26,11 @@ folder_colors={
 "res://Scenes/": "red"
 }
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+theme/custom_font="uid://beyj3kfbpysym"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
