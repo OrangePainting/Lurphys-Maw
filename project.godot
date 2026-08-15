@@ -16,6 +16,10 @@ run/main_scene="uid://c482h17qwnv50"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://cwxd5tbvrc6cx"
 
+[autoload]
+
+FxManager="*uid://ba24r8bkg84xr"
+
 [display]
 
 window/stretch/mode="canvas_items"

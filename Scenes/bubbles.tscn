@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://es4fchmn1rku"]
+
+[ext_resource type="Texture2D" uid="uid://mq4ex3gbeluq" path="res://Assets/art/FX/bubbles.png" id="1_urmec"]
+[ext_resource type="Script" uid="uid://kb614lcvkq2j" path="res://Scripts/bubbles.gd" id="2_moctl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h23i6"]
+atlas = ExtResource("1_urmec")
+region = Rect2(0, 0, 23, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8dq0"]
+atlas = ExtResource("1_urmec")
+region = Rect2(23, 0, 23, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v54si"]
+atlas = ExtResource("1_urmec")
+region = Rect2(46, 0, 23, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt6i4"]
+atlas = ExtResource("1_urmec")
+region = Rect2(69, 0, 23, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0da7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h23i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8dq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v54si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt6i4")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Bubbles" type="AnimatedSprite2D" unique_id=136433466]
+z_index = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_m0da7")
+script = ExtResource("2_moctl")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

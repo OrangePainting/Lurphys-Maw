@@ -87,6 +87,7 @@ func update_movement_animation() -> void:
 func play_dash() -> void:
 	current_animation = &"dash"
 	state_must_play = true
+	FxManager.spawn_bubbles(position)
 	sprite.play(current_animation)
 
 func play_hurt() -> void:
