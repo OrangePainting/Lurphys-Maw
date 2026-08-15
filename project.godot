@@ -11,14 +11,19 @@ config_version=5
 [application]
 
 config/name="Lurphy's Maw"
+config/version="1.0.0"
 run/main_scene="uid://c482h17qwnv50"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://cwxd5tbvrc6cx"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
 [file_customization]
 
