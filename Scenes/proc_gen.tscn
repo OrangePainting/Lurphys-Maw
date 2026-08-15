@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://caoh7ive4bfes"]
+
+[sub_resource type="TileSet" id="TileSet_li6ia"]
+tile_size = Vector2i(32, 32)
+
+[node name="ProcGen" type="Node2D" unique_id=1396242315]
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1785218630]
+tile_set = SubResource("TileSet_li6ia")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1636019933]
