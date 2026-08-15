@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bv3jswenqgrps" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cjxt3sk5lmasl" path="res://Scenes/player.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bqfvfbu7f2feg" path="res://Scenes/background.tscn" id="3_8gbba"]
 
 [node name="Main" type="Node2D" unique_id=1755036456]
 script = ExtResource("1_jjgbg")
+
+[node name="Background" parent="." unique_id=1103033396 instance=ExtResource("3_8gbba")]
 
 [node name="Player" parent="." unique_id=1996954412 instance=ExtResource("2_bo1nx")]
 position = Vector2(100, 100)

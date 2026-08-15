@@ -265,4 +265,6 @@ autoplay = "idle"
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_li6ia")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=13793571]
+
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
