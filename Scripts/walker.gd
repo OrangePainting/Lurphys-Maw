@@ -1,5 +1,7 @@
 extends Node2D
 
+signal generation_finished
+
 @export var num_walkers: int = 3
 @export var max_iterations: int = 1000
 @export var custom_viewport_size := Vector2(1280, 720)
@@ -8,13 +10,13 @@ extends Node2D
 @export var tile_size: int = 64
 
 @export var ground_tile_coords: Vector2i = Vector2i.ZERO
-@export var background_tile_coords: Vector2i = Vector2i.ZERO
+@export var wall_tile_coords: Vector2i = Vector2i.ZERO
 @export var borders: int = 0
 @export var steps_per_frame: int = 18
 
 @onready var ground_layer: TileMapLayer = %Ground
-@onready var background_layer: TileMapLayer = %Background
-@onready var camera: Camera2D = %Camera2D
+@onready var wall_layer: TileMapLayer = %Wall
+#@onready var camera: Camera2D = %Camera2D
 
 var walkers: Array[Vector2i] = []
 var iterations_count: int = 0
@@ -28,7 +30,7 @@ func _input(event: InputEvent) -> void:
 
 func reset_simulation():
 	ground_layer.clear()
-	background_layer.clear()
+	wall_layer.clear()
 	walkers.clear()
 	
 	var grid_size: Vector2i = Vector2i(viewport_size) / tile_size
@@ -49,8 +51,14 @@ func create_level():
 		iterations_count += 1
 	
 	if iterations_count >= max_iterations:
-		fill_background()
+		fill_wall()
 		is_simulation_running = false
+		generation_finished.emit()
+
+func get_spawn_position() -> Vector2:
+	var grid_size: Vector2i = Vector2i(viewport_size) / tile_size
+	var center: Vector2i = grid_size / 2
+	return Vector2(center * tile_size) + Vector2(tile_size, tile_size) / 2.0
 
 func update_walkers():
 	var tiles_placed: int = 0
@@ -68,24 +76,24 @@ func update_walkers():
 				tiles_placed += 1
 
  
-func fill_background() -> void:
+func fill_wall() -> void:
 	var grid_size: Vector2i = Vector2i(viewport_size) / tile_size
 	var placed_tiles: int = 0
 	for x in range(grid_size.x):
 		for y in range(grid_size.y):
 			var cell_pos: Vector2i = Vector2i(x, y)
 			if ground_layer.get_cell_source_id(cell_pos) == -1: # if cell empty
-				background_layer.set_cell(cell_pos, 4, background_tile_coords)
+				wall_layer.set_cell(cell_pos, 4, wall_tile_coords)
 				placed_tiles += 1
 	print("backgorund tiles placed :", placed_tiles)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	viewport_size = custom_viewport_size
-	if camera:
-		var grid_size: Vector2i = Vector2i(viewport_size) / tile_size
-		camera.position = Vector2(grid_size * tile_size) / 2
-		camera.zoom = Vector2(0.7, 0.7)
+	#if camera:
+		#var grid_size: Vector2i = Vector2i(viewport_size) / tile_size
+		#camera.position = Vector2(grid_size * tile_size) / 2
+		#camera.zoom = Vector2(0.7, 0.7)
 	
 	# start simulation
 	reset_simulation()

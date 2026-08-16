@@ -27,20 +27,17 @@ sources/4 = SubResource("TileSetAtlasSource_276sl")
 
 [node name="ProcGen" type="Node2D" unique_id=1396242315]
 script = ExtResource("1_cb6jd")
-max_iterations = 40
+num_walkers = 10
+max_iterations = 160
+custom_viewport_size = Vector2(10240, 5760)
 ground_chance = 0.35
 borders = 1
-steps_per_frame = 2
+steps_per_frame = 8
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1785218630]
 unique_name_in_owner = true
 tile_set = SubResource("TileSet_mao3v")
 
-[node name="Background" type="TileMapLayer" parent="." unique_id=964187038]
+[node name="Wall" type="TileMapLayer" parent="." unique_id=964187038]
 unique_name_in_owner = true
 tile_set = SubResource("TileSet_li6ia")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1636019933]
-unique_name_in_owner = true
-position = Vector2(640, 360)
-zoom = Vector2(0.7, 0.7)

@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 @export_group("Movement Properties")
 @export var move_speed: float = 300.0
@@ -13,7 +13,6 @@ extends Node2D
 
 @onready var sprite: AnimatedSprite2D = %Sprite
 
-var velocity: Vector2 = Vector2.ZERO
 var facing_angle: float = 0.0
 var last_move_direction: Vector2 = Vector2.RIGHT
 
@@ -49,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
-	position += velocity * delta
+	move_and_slide()
 	
 	var facing_direction := dash_direction if is_dashing else input_direction
 	if facing_direction != Vector2.ZERO:

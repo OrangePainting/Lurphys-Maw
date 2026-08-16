@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://ckrdom0eu77gj" path="res://Assets/art/player/player-swiming.png" id="5_3smsa"]
 [ext_resource type="Texture2D" uid="uid://cf2sd1cxa5xha" path="res://Assets/art/player/player-rush.png" id="5_x3wgy"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_li6ia"]
+radius = 17.0
+height = 80.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
 atlas = ExtResource("2_fkybt")
 region = Rect2(0, 0, 80, 80)
@@ -245,12 +249,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_li6ia"]
-radius = 17.0
-height = 80.0
-
-[node name="Player" type="Node2D" unique_id=1996954412]
+[node name="Player" type="CharacterBody2D" unique_id=1258302323]
 script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=992792402]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_li6ia")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=298180870]
 unique_name_in_owner = true
@@ -260,12 +264,10 @@ animation = &"swim"
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1035400472]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=992792402]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_li6ia")
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=13793571]
+zoom = Vector2(0.7, 0.7)
 process_callback = 0
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
