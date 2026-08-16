@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cf2sd1cxa5xha" path="res://Assets/art/player/player-rush.png" id="5_x3wgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_li6ia"]
-radius = 17.0
+radius = 13.0
 height = 80.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
@@ -253,6 +253,7 @@ animations = [{
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=992792402]
+unique_name_in_owner = true
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_li6ia")
 
@@ -267,7 +268,6 @@ autoplay = "idle"
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=13793571]
-zoom = Vector2(0.7, 0.7)
 process_callback = 0
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true

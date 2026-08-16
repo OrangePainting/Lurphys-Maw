@@ -11,7 +11,8 @@ extends CharacterBody2D
 @export var dash_duration: float = 0.15 # sec
 @export var dash_cooldown: float = 1.0 # sec
 
-@onready var sprite: AnimatedSprite2D = %Sprite
+@onready var sprite := %Sprite
+@onready var collision_shape := %CollisionShape2D
 
 var facing_angle: float = 0.0
 var last_move_direction: Vector2 = Vector2.RIGHT
@@ -61,6 +62,11 @@ func _physics_process(delta: float) -> void:
 		sprite.rotation = facing_angle
 	
 	update_movement_animation()
+	rotate_collision_shape()
+
+
+func rotate_collision_shape() -> void:
+	collision_shape.rotation = sprite.rotation + PI / 2
 
 func start_dash(input_direction: Vector2) -> void:
 	dash_direction = (input_direction if input_direction != Vector2.ZERO else last_move_direction).normalized()
